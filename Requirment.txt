@@ -5,3 +5,5 @@ Required libraries:
 OpenCV: cv2
 pygame
 numpy
+
+Permission for video recording
