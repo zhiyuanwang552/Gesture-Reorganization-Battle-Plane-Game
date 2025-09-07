@@ -95,7 +95,7 @@ with GestureRecognizer.create_from_options(options) as recognizer:
         if(asteroid_spawn_counter == 60):
             asteroid_spawn_counter = 0
             asteroid_list.append(ob.asteroids(screen_width, random.randint(0, screen_height - int(screen_height/10)), int(screen_height/10), int(screen_width/10), random.randint(1,3), random.randint(3,6), 30))
-        if(bullet_time_counter == 15):
+        if(bullet_time_counter == 13):
             bullet_time_counter = 0
             bullet_list.append(ob.bullet(plane.x + plane_img.get_width(), int(plane.y + plane_img.get_height()/2.8)))
         clock.tick(FPS)
