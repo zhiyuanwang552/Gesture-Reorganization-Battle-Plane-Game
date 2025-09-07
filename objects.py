@@ -9,6 +9,7 @@ class player_plane:
         self.x_flame = int(x_cord * 0.95)
         self.y_flame = int((2 * y_cord + plane_height) / 2.07)
         self.flame_index = 0
+        self.health_id = 1
     
     def move(self,dx,direction,screen_height):
         if direction == "up":
@@ -27,10 +28,18 @@ class player_plane:
         if(self.flame_index == 7):
             self.flame_index = 0
         
-    
     def hit(self,dmg):
         self.health -= dmg
+        if(self.health == 80):
+            self.health_id = 2
+        elif(self.health == 60):
+            self.health_id = 3
+        elif(self.health == 40):
+            self.health_id = 4
+        elif(self.health == 20):
+            self.health_id = 5
         if self.health <= 0:
+            self.health_id = 6
             self.state = "dead"
 
 class bullet:

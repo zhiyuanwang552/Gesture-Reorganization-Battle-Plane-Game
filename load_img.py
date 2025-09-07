@@ -49,3 +49,11 @@ def load_explosion(explosion_height,explosion_width):
         img = pg.transform.scale(img, (explosion_width, explosion_height))
         explosion_imgs.append(img)
     return explosion_imgs
+
+def load_health_bar(health_width,health_height):
+    health_bar = []
+    for i in range(1,8):
+        img = pg.image.load(f"lib/health/health ({i}).png")
+        img = pg.transform.scale(img, (int(health_width), int(health_height)))
+        health_bar.append(img)
+    return health_bar

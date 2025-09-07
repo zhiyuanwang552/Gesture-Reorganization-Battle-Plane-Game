@@ -66,6 +66,7 @@ with GestureRecognizer.create_from_options(options) as recognizer:
     bullet_img = li.load_bullet(screen_width,screen_height)
     asteroid_imgs = li.load_asteroids(int(screen_height/10),int(screen_width/10))
     explosion_imgs = li.load_explosion(int(screen_height/10),int(screen_width/10))
+    health_bar = li.load_health_bar(int(screen_width/7),int(screen_height/23))
 
     #scale images
     up_arrow = pg.transform.scale(up_arrow, (int(screen_width/22), int(screen_height/13)))
@@ -75,6 +76,8 @@ with GestureRecognizer.create_from_options(options) as recognizer:
     board = pg.transform.scale(board, (int(screen_width/4.3), int(screen_height)))
     board_bg = pg.transform.scale(board_bg, (int(screen_width/4.3), int(screen_height)))
     #set image positions
+    health_bar_x, health_bar_y = int((screen_width/4.3)/5), int(screen_height/2.7)
+
     boarder_out_x = int(screen_width/4.3)
 
     arrow_up_x = boarder_out_x
@@ -183,6 +186,9 @@ with GestureRecognizer.create_from_options(options) as recognizer:
         pg_screen.blit(board_bg, (0,0))
         pg_screen.blit(frame, (int((screen_width/4.3)/6.5), int(screen_height/7)))
         pg_screen.blit(board, (0,0))
+        pg_screen.blit(health_bar[0],(health_bar_x, health_bar_y))
+        pg_screen.blit(health_bar[plane.health_id], (health_bar_x, health_bar_y))
+        
         for e in explosion_list:
             if e[0] < 20:
                 pg_screen.blit(explosion_imgs[e[0]], (e[1], e[2]))
